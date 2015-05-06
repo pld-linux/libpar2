@@ -2,7 +2,7 @@ Summary:	Library for performing comman tasks related to PAR recovery sets
 Summary(pl.UTF-8):	Library for performing comman tasks related to PAR recovery sets
 Name:		libpar2
 Version:	0.2
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/parchive/%{name}-%{version}.tar.gz
@@ -64,6 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm $RPM_BUILD_ROOT%{_libdir}/libpar2.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -73,14 +75,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README ROADMAP
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libpar2.so.0
+%attr(755,root,root) %{_libdir}/libpar2.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%{_libdir}/libpar2.so
 %{_includedir}/libpar2
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libpar2.a
